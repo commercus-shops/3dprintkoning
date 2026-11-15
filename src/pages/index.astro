@@ -1,0 +1,21 @@
+---
+import ProductCard from "../components/ProductCard.astro";
+import Base from "../layouts/Base.astro";
+import { catalog } from "../lib/catalog";
+import { shop } from "../shop.config";
+
+const { products } = await catalog();
+---
+<Base>
+  <section class="hero">
+    <h1>{shop.name}</h1>
+    <p class="tagline">{shop.tagline}</p>
+  </section>
+  {products.length > 0 && (
+    <section>
+      <h2>Uitgelicht</h2>
+      <div class="grid">{products.slice(0, shop.featured).map((product) => <ProductCard product={product} />)}</div>
+      <p><a href="/producten/">Alle producten →</a></p>
+    </section>
+  )}
+</Base>

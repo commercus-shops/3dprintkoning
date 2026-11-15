@@ -1,0 +1,26 @@
+{
+  "name": "commercus-storefront-template",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A webshop on Commercus: Astro, static, ready to fork.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "deploy": "node scripts/deploy.mjs"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^4.0.0",
+    "@commercus/storefront": "file:vendor/commercus-storefront-0.1.0.tgz",
+    "astro": "^5.0.0",
+    "marked": "^16.0.0",
+    "preact": "^10.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.0",
+    "@aws-sdk/client-s3": "^3.0.0",
+    "typescript": "^5.0.0"
+  }
+}

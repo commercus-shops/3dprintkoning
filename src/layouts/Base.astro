@@ -1,0 +1,40 @@
+---
+import "../styles/shop.css";
+import CartCount from "../islands/CartCount";
+import { shop } from "../shop.config";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} · ${shop.name}` : shop.name;
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description ?? shop.tagline} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site">
+      <a class="brand" href="/">{shop.name}</a>
+      <nav>
+        <a href="/producten/">Producten</a>
+        <a href="/over-ons/">Over ons</a>
+        <a class="cart" href="/winkelwagen/" aria-label="Winkelwagen">🛒 <CartCount client:idle /></a>
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer class="site">
+      <p>© {new Date().getFullYear()} {shop.name}</p>
+      <nav>
+        <a href="/algemene-voorwaarden/">Algemene voorwaarden</a>
+        <a href="/privacy/">Privacy</a>
+      </nav>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+/*
+ * The shop's look, in one file. Change the tokens below for another colour scheme or font; the rest
+ * follows. Light and dark both.
+ */
+:root {
+  --accent: #7c3aed;
+  --accent-text: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --background: #ffffff;
+  --surface: #f9fafb;
+  --line: #e5e7eb;
+  --radius: 0.75rem;
+  --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --text: #f3f4f6; --muted: #9ca3af; --background: #0b0f19; --surface: #111827; --line: #374151; }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0 auto; max-width: 68rem; padding: 1.5rem 1rem; font: 17px/1.6 var(--font); color: var(--text); background: var(--background); }
+a { color: var(--accent); }
+h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 0.75rem; }
+
+header.site, footer.site { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.75rem; }
+header.site { margin-bottom: 2.5rem; }
+header.site a, footer.site a { color: inherit; text-decoration: none; }
+header.site nav, footer.site nav { display: flex; gap: 1.25rem; }
+.brand { font-weight: 800; font-size: 1.35rem; }
+.badge { background: var(--accent); color: var(--accent-text); border-radius: 999px; font-size: 0.75rem; padding: 0 0.45rem; }
+footer.site { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.875rem; color: var(--muted); }
+
+.hero { padding: 2rem 0; }
+.tagline { font-size: 1.25rem; color: var(--muted); }
+.categories { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 1.25rem; margin: 1rem 0; }
+.card { display: flex; flex-direction: column; gap: 0.25rem; padding: 0.75rem; color: inherit; text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.card img, .placeholder { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: calc(var(--radius) - 0.25rem); }
+.placeholder { display: grid; place-items: center; font-size: 3rem; color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.card .title { font-weight: 600; }
+.card .price, .stock, .note { color: var(--muted); }
+.soldout, .problem { color: #dc2626; font-size: 0.875rem; }
+
+.product { display: grid; gap: 2rem; }
+@media (min-width: 48rem) { .product { grid-template-columns: 1fr 1fr; } }
+.gallery { display: grid; gap: 0.75rem; }
+.gallery img { width: 100%; height: auto; border-radius: var(--radius); }
+.buy .price, .product .price { font-size: 1.6rem; font-weight: 700; margin: 0.5rem 0 1rem; }
+label { display: block; margin: 0.75rem 0; font-weight: 600; }
+select, input[type="number"] { display: block; margin-top: 0.25rem; padding: 0.4rem 0.5rem; font: inherit; color: inherit; background: var(--background); border: 1px solid var(--line); border-radius: 0.4rem; min-width: 6rem; }
+button { padding: 0.7rem 1.4rem; font: inherit; font-weight: 700; color: var(--accent-text); background: var(--accent); border: 0; border-radius: 0.5rem; cursor: pointer; }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button.secondary { color: var(--accent); background: transparent; border: 1px solid var(--accent); }
+button.link { padding: 0; font-weight: 400; color: var(--accent); background: none; text-decoration: underline; }
+.message { min-height: 1.6em; }
+
+table.lines { width: 100%; margin: 1rem 0; border-collapse: collapse; }
+table.lines th, table.lines td { padding: 0.6rem 0.4rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+table.lines .amount { text-align: right; white-space: nowrap; }
+table.lines input { width: 5rem; min-width: 0; }
+.draft { padding: 0.75rem 1rem; background: color-mix(in srgb, #f59e0b 15%, transparent); border-radius: var(--radius); }

@@ -1,0 +1,16 @@
+---
+import ProductCard from "../../components/ProductCard.astro";
+import Base from "../../layouts/Base.astro";
+import { catalog } from "../../lib/catalog";
+
+const { products, categories } = await catalog();
+---
+<Base title="Producten">
+  <h1>Producten</h1>
+  {categories.length > 0 && (
+    <nav class="categories">{categories.filter((c) => !c.parent).map((c) => <a href={`/categorie/${c.slug}/`}>{c.name}</a>)}</nav>
+  )}
+  {products.length > 0
+    ? <div class="grid">{products.map((product) => <ProductCard product={product} />)}</div>
+    : <p>Er staan nog geen producten in de winkel. Kom snel terug!</p>}
+</Base>
