@@ -1,7 +1,8 @@
 # Forgejo's copy of .github/workflows/deploy.yml (GitHub ignores this folder, Forgejo prefers it).
-# Builds the shop and deploys it to its Garage website bucket: on every push to main, every hour (so a
-# product added in the admin appears without a push; prices and stock are live in the browser
-# regardless), and by hand. Repository settings (Commercus' provisioning sets them, or by hand):
+# Builds the shop and deploys it to its Garage website bucket: on every push to main, by hand, and by
+# Commercus (workflow_dispatch) shortly after the catalogue changes in the admin. Until then the pages
+# refresh themselves in the browser; the hourly build is only a fallback.
+# Repository settings (Commercus' provisioning sets them, or by hand):
 #   variables: PUBLIC_COMMERCUS_KEY (the shop's pk_…), S3_BUCKET (the shop's domain), SITE_URL,
 #              optionally PUBLIC_COMMERCUS_API and S3_ENDPOINT
 #   secrets:   S3_ACCESS_KEY, S3_SECRET_KEY (a key for this bucket only)

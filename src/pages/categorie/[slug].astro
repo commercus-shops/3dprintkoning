@@ -1,5 +1,5 @@
 ---
-import ProductCard from "../../components/ProductCard.astro";
+import ProductGrid from "../../islands/ProductGrid";
 import Base from "../../layouts/Base.astro";
 import { catalog } from "../../lib/catalog";
 
@@ -16,7 +16,5 @@ const { category, products } = Astro.props;
 <Base title={category.name} description={category.description ?? undefined}>
   <h1>{category.name}</h1>
   {category.description && <p>{category.description}</p>}
-  {products.length > 0
-    ? <div class="grid">{products.map((product) => <ProductCard product={product} />)}</div>
-    : <p>Hier staan nog geen producten.</p>}
+  <ProductGrid client:idle initial={products} category={category.slug} empty="Hier staan nog geen producten." />
 </Base>
