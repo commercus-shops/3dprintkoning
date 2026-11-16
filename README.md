@@ -1,4 +1,13 @@
-# Commercus storefront template
+# 3D Print Koning
+
+The webshop of [3D Print Koning](https://3dprintkoning.eu), and the reference shop of Commercus: a
+fork of [commercus/storefront-template](https://github.com/commercus/storefront-template), deployed
+to the Garage bucket `3dprintkoning.eu` by `.github/workflows/deploy.yml`.
+
+Updates from the template: `git pull https://github.com/commercus/storefront-template.git main`.
+
+## About the template
+
 
 A webshop on [Commercus](https://commercus.nl), the platform for small makers: an
 [Astro](https://astro.build) site that is built to static files and served from any S3-style bucket.
