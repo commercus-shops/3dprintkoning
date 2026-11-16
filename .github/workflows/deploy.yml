@@ -1,6 +1,7 @@
-# Builds the shop and deploys it to its S3 website bucket (Garage): on every push to main, every hour
-# (so a product added in the Commercus admin appears without a push; prices and stock are live in the
-# browser regardless), and by hand. Pull requests are only built.
+# Builds the shop and deploys it to its S3 website bucket (Garage): on every push to main, by hand, and
+# by Commercus (workflow_dispatch) shortly after the catalogue changes in the admin. Until then the
+# pages refresh themselves in the browser; the hourly build is only a fallback. Pull requests are only
+# built.
 #
 # Repository settings:
 #   variables: PUBLIC_COMMERCUS_KEY (the shop's pk_…), S3_BUCKET (the shop's domain), SITE_URL,

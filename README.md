@@ -29,7 +29,9 @@ Fork it, make it yours, and sell.
    there, add `localhost:4321` as a DEV domain of your shop in the admin (Winkel, Domeinen).
 4. Change `src/shop.config.ts` and `src/styles/shop.css` to your own name and look.
 5. Set the repository's variables and secrets (the comments at the top of the deploy workflow list
-   them), then push: the site is built and deployed to your bucket on every push and every hour.
+   them), then push: the site is built and deployed to your bucket on every push, every hour, and
+   when Commercus starts the workflow after a change in the catalogue. Until then the pages refresh
+   themselves in the browser: a new, changed or removed product shows at once.
    On GitHub that is `.github/workflows/deploy.yml`, on Forgejo `.forgejo/workflows/deploy.yml`.
 
 In the Commercus admin, set your shop's thank-you page to `https://<your domain>/bedankt/`.

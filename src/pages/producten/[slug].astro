@@ -1,6 +1,6 @@
 ---
 import { marked } from "marked";
-import VariantPicker from "../../islands/VariantPicker";
+import ProductView from "../../islands/ProductView";
 import Base from "../../layouts/Base.astro";
 import { catalog } from "../../lib/catalog";
 
@@ -11,19 +11,8 @@ export async function getStaticPaths() {
 
 const { product } = Astro.props;
 // The description is Markdown, written by the shop's owner in the admin.
-const description = product.description ? await marked.parse(product.description) : "";
+const descriptionHtml = product.description ? await marked.parse(product.description) : "";
 ---
 <Base title={product.title} description={product.description?.slice(0, 160)}>
-  <article class="product">
-    <div class="gallery">
-      {product.images.length > 0
-        ? product.images.map((image, i) => <img src={image.url} alt={image.alt ?? product.title} width={image.width} height={image.height} loading={i === 0 ? "eager" : "lazy"} />)
-        : <div class="placeholder" aria-hidden="true">✦</div>}
-    </div>
-    <div>
-      <h1>{product.title}</h1>
-      <VariantPicker client:load product={product} />
-      <div class="description" set:html={description} />
-    </div>
-  </article>
+  <ProductView client:load initial={product} descriptionHtml={descriptionHtml} />
 </Base>

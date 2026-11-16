@@ -1,9 +1,9 @@
 # Instructions for AI agents
 
 This is a webshop on the Commercus platform, built with Astro: a static site, served from a bucket.
-Products come from the Commercus storefront API when the site is built; prices, stock and the cart
-are live in the browser. Every push to `main` builds the site and puts it live, and so does a build
-every hour.
+Products come from the Commercus storefront API when the site is built, and are refreshed from it in
+the browser; prices, stock and the cart are live there too. Every push to `main` builds the site and
+puts it live; so does Commercus, shortly after the owner changes the catalogue, and a build every hour.
 
 ## How the shop works
 
@@ -12,8 +12,13 @@ every hour.
 - **Products** are pages made at build time from the API (`src/pages/producten/[slug].astro`, from
   `src/lib/catalog.ts`). Never write product pages or prices by hand: the owner adds products in the
   Commercus admin, and the next build shows them.
+- **Until that build**, the islands show the change already: `ProductGrid` refreshes every product
+  list, `ProductView` refreshes a product page (or says the product is no longer for sale), and
+  `NotBuiltYet` on the 404 page shows a product or category that has no page yet. Keep product lists
+  and product pages on these islands, so the shop never shows a stale catalogue.
 - **Islands** (`src/islands/`, Preact) are the parts that run in the browser: the cart count, the
-  choice of variant with its live price and stock, the cart page, the thank-you page.
+  product lists and pages, the choice of variant with its live price and stock, the cart page, the
+  thank-you page.
 - **Look**: `src/styles/shop.css`. Change the tokens at the top first (colours, font, radius).
 - **Frame of every page**: `src/layouts/Base.astro`.
 

@@ -1,5 +1,5 @@
 ---
-import ProductCard from "../components/ProductCard.astro";
+import ProductGrid from "../islands/ProductGrid";
 import Base from "../layouts/Base.astro";
 import { catalog } from "../lib/catalog";
 import { shop } from "../shop.config";
@@ -16,11 +16,7 @@ const { products } = await catalog();
     </p>
     <p>Kies je model, je kleur en je maat: we printen het voor je en sturen het naar je toe.</p>
   </section>
-  {products.length > 0 && (
-    <section>
-      <h2>Uitgelicht</h2>
-      <div class="grid">{products.slice(0, shop.featured).map((product) => <ProductCard product={product} />)}</div>
-      <p><a href="/producten/">Alle producten →</a></p>
-    </section>
-  )}
+  <section>
+    <ProductGrid client:idle initial={products} limit={shop.featured} heading="Uitgelicht" more={{ href: "/producten/", label: "Alle producten →" }} />
+  </section>
 </Base>
