@@ -19,8 +19,9 @@ Fork it, make it yours, and sell.
 3. `npm install`, then `npm run dev`: your shop on <http://localhost:4321>. For the cart to work
    there, add `localhost:4321` as a DEV domain of your shop in the admin (Winkel, Domeinen).
 4. Change `src/shop.config.ts` and `src/styles/shop.css` to your own name and look.
-5. Push: `.forgejo/workflows/deploy.yml` builds and deploys to your bucket (see its comments for the
-   repository variables and secrets), on every push and every hour.
+5. Set the repository's variables and secrets (the comments at the top of the deploy workflow list
+   them), then push: the site is built and deployed to your bucket on every push and every hour.
+   On GitHub that is `.github/workflows/deploy.yml`, on Forgejo `.forgejo/workflows/deploy.yml`.
 
 In the Commercus admin, set your shop's thank-you page to `https://<your domain>/bedankt/`.
 

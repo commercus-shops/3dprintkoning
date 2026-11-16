@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/preact": "^4.0.0",
-    "@commercus/storefront": "file:vendor/commercus-storefront-0.1.0.tgz",
+    "@commercus/storefront": "^0.1.1",
     "astro": "^5.0.0",
     "marked": "^16.0.0",
     "preact": "^10.0.0"

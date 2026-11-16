@@ -1,3 +1,4 @@
+# Forgejo's copy of .github/workflows/deploy.yml (GitHub ignores this folder, Forgejo prefers it).
 # Builds the shop and deploys it to its Garage website bucket: on every push to main, every hour (so a
 # product added in the admin appears without a push; prices and stock are live in the browser
 # regardless), and by hand. Repository settings (Commercus' provisioning sets them, or by hand):

@@ -2,8 +2,8 @@
 
 This is a webshop on the Commercus platform, built with Astro: a static site, served from a bucket.
 Products come from the Commercus storefront API when the site is built; prices, stock and the cart
-are live in the browser. Every push to `main` builds the site and puts it live (Forgejo), and so does
-a build every hour.
+are live in the browser. Every push to `main` builds the site and puts it live, and so does a build
+every hour.
 
 ## How the shop works
 
@@ -32,7 +32,8 @@ a build every hour.
 - No secrets, `sk_` tokens or passwords in the repository. Only the public `pk_` key is used, and it
   comes from the environment.
 - No trackers or external scripts without weighing the cookie banner (`docs/regels.md`).
-- Do not change `.forgejo/workflows/` unless the shop owner explicitly asks for it.
+- Do not change `.github/workflows/` or `.forgejo/workflows/` unless the shop owner explicitly asks
+  for it.
 
 ## Useful
 
